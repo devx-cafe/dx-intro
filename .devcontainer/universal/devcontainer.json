@@ -1,0 +1,17 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"DavidAnson.vscode-markdownlint",
+				"phind.phind",
+				"GitHub.copilot"
+			]
+		}
+	},
+    "postCreateCommand": "git config --local --get include.path | grep -e ../.gitconfig || git config --local --add include.path ../.gitconfig"
+}

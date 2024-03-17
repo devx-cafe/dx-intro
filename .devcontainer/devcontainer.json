@@ -1,6 +1,17 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"name": "Existing Dockerfile",
+	"build": {
+		// Sets the run context to one level up instead of the .devcontainer folder.
+		"context": "..",
+		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+		"dockerfile": "../dockerfile"
+	},
 	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {},
 		"ghcr.io/devcontainers/features/azure-cli:1": {}
 	},
 	"customizations": {
@@ -13,5 +24,11 @@
 			]
 		}
 	},
-    "postCreateCommand": "git config --local --get include.path | grep -e ../.gitconfig || git config --local --add include.path ../.gitconfig"
+	"postCreateCommand": "git config --local --get include.path | grep -e ../.gitconfig || git config --local --add include.path ../.gitconfig",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [4000]
+
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer"
 }
