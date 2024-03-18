@@ -30,9 +30,8 @@ concurrency:
 jobs:
   # Build job
   build:
-    container: 
+    container:
       image: ruby:3.2.3-bullseye
-      options: --entrypoint /bin/sh
     steps:
       - name: Checkout
         uses: actions/checkout@v4
